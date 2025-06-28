@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block block_title %}Profile{%endblock%}
+{%block body_block%}
+
+
+<h2>Add Your Profile Picture: </h2>
+<form method="POST" enctype="multipart/form-data">
+    {{form|crispy}}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-sm btn-success">Add</button>
+</form>
+
+
+{% endblock %}

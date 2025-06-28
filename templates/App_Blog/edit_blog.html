@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block block_title %} {{blog.blog_title}} {%endblock%}
+{%block body_block%}
+
+{% if blog.author == user %}
+<form method="POST">
+    {{form|crispy}}
+    {% csrf_token %}
+    <button type="submit" name="button" class="btn btn-sm btn-success">Update</button>
+    {% else %}
+    <p>You are not allowed to view this page. 404</p>
+</form>
+{% endif %}
+{% endblock %}
